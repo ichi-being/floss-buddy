@@ -59,5 +59,8 @@
 * グループ作成,グループへの通知
 
 ## ■ 機能の実装方針予定
-* LINE Messagin API
+* LINE Messaging API
 * 楽天検索API
+
+## 画面遷移図
+Figma：https://www.figma.com/file/mSKA8rkvE3uJNMXWxks8i1/Floss-Buddy?type=design&node-id=0%3A1&mode=design&t=XzEXnIhUxRGIoYxK-1
