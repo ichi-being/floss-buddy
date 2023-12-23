@@ -66,4 +66,4 @@
 Figma：https://www.figma.com/file/mSKA8rkvE3uJNMXWxks8i1/Floss-Buddy?type=design&node-id=0%3A1&mode=design&t=XzEXnIhUxRGIoYxK-1
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/a05e07b7bfb62e7d43a8ec8b13c5d2d6.png)](https://gyazo.com/a05e07b7bfb62e7d43a8ec8b13c5d2d6)
+[![Image from Gyazo](https://i.gyazo.com/20a851678a4c1c45b37dae8c94e87858.png)](https://gyazo.com/20a851678a4c1c45b37dae8c94e87858)
