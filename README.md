@@ -64,3 +64,6 @@
 
 ## 画面遷移図
 Figma：https://www.figma.com/file/mSKA8rkvE3uJNMXWxks8i1/Floss-Buddy?type=design&node-id=0%3A1&mode=design&t=XzEXnIhUxRGIoYxK-1
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/08ddec73994fc80aec2a5343f0c55f6d.png)](https://gyazo.com/08ddec73994fc80aec2a5343f0c55f6d)
