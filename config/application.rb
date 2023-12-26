@@ -17,6 +17,8 @@ module App
       g.test_framework nil
       g.routes false
     end
+
+    config.i18n.default_locale = :ja
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
