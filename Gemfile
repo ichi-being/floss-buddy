@@ -75,3 +75,7 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "redis", "~> 5.0"
