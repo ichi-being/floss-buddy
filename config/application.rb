@@ -15,7 +15,7 @@ module App
     config.generators do |g|
       g.helper false
       g.test_framework nil
-      g.routes false
+      g.skip_routes true
     end
 
     config.i18n.default_locale = :ja
