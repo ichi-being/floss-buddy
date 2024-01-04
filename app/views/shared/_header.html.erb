@@ -1,0 +1,32 @@
+<header>
+  <!-- DaisyUIのnavbarコンポーネントを適用 -->
+  <nav class="navbar bg-base-100">
+    <%= link_to '/', class: 'flex items-center navbar-start' do %>
+      <%= image_tag('header_logo.png', class: 'mr-3 h-6 sm:h-9') %>
+    <% end %>
+
+    <div class="navbar-end">
+      <div class="dropdown dropdown-end">
+        <!-- link_toを使う形に修正 -->
+        <%= link_to '#', class: 'btn btn-ghost btn-circle', data: { toggle: 'dropdown' } do %>
+          <!-- image_tagを使う形に修正 -->
+          <%= image_tag('LINE_icon.png', class: 'rounded-full', width: '40', height: '40') %>
+        <% end %>
+        <ul class="shadow menu dropdown-content bg-base-100 rounded-box w-52">
+          <li>
+            <div class='dropdown-item'>らんてっく たろう</div>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <!-- link_toを使う形に修正 -->
+            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+          </li>
+          <li>
+            <!-- link_toを使う形に修正 -->
+            <%= link_to 'ログアウト', '#', class: 'dropdown-item' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
