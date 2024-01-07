@@ -1,4 +1,9 @@
 ja:
+  static_pages:
+    terms_of_service:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
   helpers:
   users:
     new:
