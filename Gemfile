@@ -76,6 +76,8 @@ group :test do
 
 end
 
+# fly launchで作成されたgem
 gem "dockerfile-rails", ">= 1.6", :group => :development
-
 gem "redis", "~> 5.0"
+
+gem "dotenv-rails"
