@@ -20,6 +20,7 @@ services:
       - .:/app
     environment:
       TZ: Asia/Tokyo
+    env_file: ./.env
     ports:
       - "3000:3000"
     depends_on:

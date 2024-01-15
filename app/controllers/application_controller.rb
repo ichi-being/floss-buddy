@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
-  helper_method :login_required
-  helper_method :logged_in?
+  helper_method :current_user, :logged_in?, :login_required
 
   private
 
@@ -11,11 +9,15 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    # ログインしていない（current_userが存在しない場合）root_pathに飛ばす
+    # 未ログインの場合（current_userが存在しない場合）root_pathに飛ばす
     redirect_to root_path unless current_user
   end
 
   def logged_in?
-    !current_user.nil?
+    current_user.present?
+  end
+
+  def set_liff_id
+    gon.liff_id = ENV['LIFF_ID']
   end
 end
