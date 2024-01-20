@@ -1,6 +1,17 @@
 <div class="container">
   <div class="jumbotron">
-    <h1 class="p-3 mb-2 bg-danger text-white">ログイン後のページです</h1>
+    <h1 class="p-3 mb-2 bg-danger text-black">ログイン後のページです</h1>
     <p>This is the homepage of my awesome website.</p>
+
+    <% if @current_user %>
+      <h3>ようこそ、<%= @current_user.display_name %>さん！</h3>
+      <% if @current_user.image.present? %>
+        <img src="<%= @current_user.image %>" alt="プロフィール画像" style="max-width: 200px;">
+      <% else %>
+        <p>プロフィール画像はありません。</p>
+      <% end %>
+    <% else %>
+      <p>ログインしていません。</p>
+    <% end %>
   </div>
 </div>

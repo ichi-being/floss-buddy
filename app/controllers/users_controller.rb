@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   require 'uri'
 
   def new
-    if current_user
-      redirect_to after_login_path
-    end
+    redirect_to after_login_path if current_user
   end
 
   def create
@@ -24,8 +22,19 @@ class UsersController < ApplicationController
     res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'), { 'id_token' => id_token, 'client_id' => channel_id })
     raise "LINE API error: #{res.code}" unless res.is_a?(Net::HTTPSuccess)
 
-    line_user_id = JSON.parse(res.body)['sub']
+    line_data = JSON.parse(res.body)
+    line_user_id = line_data['sub']
+    display_name = line_data['name']
+    picture_url = line_data['picture']
+
     raise 'LINE user ID not found' unless line_user_id
-    User.find_or_create_by(line_user_id: line_user_id)
+
+    # ユーザーを検索、または新規作成し、情報を更新
+    user = User.find_or_initialize_by(line_user_id: line_user_id)
+    user.display_name = display_name.presence
+    user.image = picture_url.presence
+    user.save!
+
+    user
   end
 end
