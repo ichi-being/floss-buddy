@@ -76,6 +76,12 @@ group :test do
 
 end
 
+# fly launchで作成されたgem
 gem "dockerfile-rails", ">= 1.6", :group => :development
-
 gem "redis", "~> 5.0"
+
+# 秘匿情報を環境変数に設定するためのgem
+gem "dotenv-rails"
+
+# JSにRailsから変数を渡すためのgem
+gem "gon"
