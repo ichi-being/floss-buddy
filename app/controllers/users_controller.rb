@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     render json: { error: e.message }, status: :unprocessable_entity
   end
 
+  def show
+    @user = current_user
+    @floss_records = @user.floss_records.order(record_date: :desc)
+  end
+
   private
 
   def authenticate_line_user(id_token)

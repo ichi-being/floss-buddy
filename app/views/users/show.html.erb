@@ -1,0 +1,14 @@
+<% content_for(:title, t('.title')) %>
+<section class="container mx-auto px-4 sm:px-6">
+  <div class="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 mb-10">
+    <div class="flex items-center mb-6">
+      <%= image_tag @user.image, alt: @user.display_name, class: "rounded-full h-20 w-20 mr-4" %>
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-800"><%= @user.display_name %></h2>
+    </div>
+
+    <div class="text-gray-600">
+      <p class="mb-4">フロス実施日数: <%= @user.floss_records.count %>日</p>
+      <p>連続フロス日数: <%= @user.floss_records.order(record_date: :desc).first.consecutive_count %>日</p>
+    </div>
+  </div>
+</section>
