@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @floss_records = @user.floss_records.order(record_date: :desc)
+    @latest_record = @floss_records.first
   end
 
   private
