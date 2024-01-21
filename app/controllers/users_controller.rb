@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_liff_id, only: [:new]
+  before_action :login_required, only: [:show]
   require 'net/http'
   require 'uri'
 

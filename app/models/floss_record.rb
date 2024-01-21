@@ -4,7 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  consecutive_count :integer          default(0)
-#  record_date       :date             not null
+#  record_date       :date
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :bigint           not null
@@ -21,7 +21,6 @@
 class FlossRecord < ApplicationRecord
   belongs_to :user
 
-  validates :record_date, presence: true
   validate :date_is_yesterday_or_today
   validates :consecutive_count, numericality: { greater_than_or_equal_to: 0 }
 
