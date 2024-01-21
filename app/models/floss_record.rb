@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: floss_records
+#
+#  id                :bigint           not null, primary key
+#  consecutive_count :integer          default(0)
+#  record_date       :date             not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  user_id           :bigint           not null
+#
+# Indexes
+#
+#  index_floss_records_on_user_id                  (user_id)
+#  index_floss_records_on_user_id_and_record_date  (user_id,record_date) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
 class FlossRecord < ApplicationRecord
   belongs_to :user
 
