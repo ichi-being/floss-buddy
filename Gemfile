@@ -88,3 +88,6 @@ gem "dotenv-rails"
 
 # JSにRailsから変数を渡すためのgem
 gem "gon"
+
+# LINE Messaging APIを使うためのgem
+gem 'line-bot-api'
