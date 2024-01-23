@@ -2,6 +2,15 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      floss_record: フロス記録
     attributes:
       user:
         display_name: 名前
+      floss_record:
+        record_date: 実施日
+    errors:
+      models:
+        floss_record:
+          attributes:
+            record_date:
+              record_date_must_be: "は今日または昨日でなければなりません。"

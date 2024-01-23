@@ -8,4 +8,6 @@ ja:
   users:
     new:
       title: ユーザー登録
+    show:
+      title: プロフィール
   header:

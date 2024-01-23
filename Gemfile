@@ -67,6 +67,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # modelのスキーマをコメントアウトで表示するgem
+  gem "annotate"
 end
 
 group :test do
@@ -85,3 +88,6 @@ gem "dotenv-rails"
 
 # JSにRailsから変数を渡すためのgem
 gem "gon"
+
+# LINE Messaging APIを使うためのgem
+gem 'line-bot-api'

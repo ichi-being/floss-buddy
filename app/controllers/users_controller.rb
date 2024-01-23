@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_liff_id, only: [:new]
+  before_action :login_required, only: [:show]
   require 'net/http'
   require 'uri'
 
@@ -13,6 +14,12 @@ class UsersController < ApplicationController
     render json: user
   rescue StandardError => e
     render json: { error: e.message }, status: :unprocessable_entity
+  end
+
+  def show
+    @user = current_user
+    @floss_records = @user.floss_records.order(record_date: :desc)
+    @latest_record = @floss_records.first
   end
 
   private
