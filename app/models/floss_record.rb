@@ -30,7 +30,7 @@ class FlossRecord < ApplicationRecord
 
   # 実施記録を保存する前に、連続実施日数を更新する
   def update_consecutive_count
-    last_record = user.floss_records.order(record_date: :desc).second
+    last_record = user.floss_records.order(record_date: :desc).first
 
     if last_record && (record_date - last_record.record_date).to_i <= 2
       # 前回の記録から2日以内の場合、連続実施日数をインクリメント
