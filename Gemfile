@@ -91,3 +91,7 @@ gem "gon"
 
 # LINE Messaging APIを使うためのgem
 gem 'line-bot-api'
+
+# バックグラウンド処理を行うためのgem
+gem 'sidekiq'
+gem 'sidekiq-scheduler' # Sidekiqで定期実行するためのgem
