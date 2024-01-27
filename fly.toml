@@ -12,13 +12,20 @@ console_command = "/rails/bin/rails console"
 [deploy]
   release_command = "./bin/rails db:prepare"
 
+[processes]
+app = "bin/rails server"
+worker = "bundle exec sidekiq"
+
 [http_service]
+  processes = ["app"]
   internal_port = 3000
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+
+[env]
+  TZ = "Asia/Tokyo"
 
 [[vm]]
   cpu_kind = "shared"
