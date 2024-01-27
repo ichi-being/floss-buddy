@@ -22,6 +22,8 @@ module App
     config.i18n.default_locale = :ja
     # タイムゾーンを東京に設定
     config.time_zone = 'Tokyo'
+    # Active Job のキューアダプタとして Sidekiq を設定
+    config.active_job.queue_adapter = :sidekiq
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     # config.eager_load_paths << Rails.root.join("extras")
