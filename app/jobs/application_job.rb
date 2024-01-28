@@ -1,3 +1,5 @@
+require 'line/bot' # gem 'line-bot-api'
+require 'line_bot_client' # lib/line_bot_client.rb
 class ApplicationJob < ActiveJob::Base
   # Automatically retry jobs that encountered a deadlock
   # retry_on ActiveRecord::Deadlocked

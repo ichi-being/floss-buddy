@@ -1,5 +1,3 @@
-require 'line/bot' # gem 'line-bot-api'
-
 class FlossReminderJob < ApplicationJob
   queue_as :default
 
@@ -16,14 +14,11 @@ class FlossReminderJob < ApplicationJob
   private
 
   def send_reminder(line_user_id)
-    client = Line::Bot::Client.new { |config|
-    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
-    }
+    client = LineBotClient.client
 
     message = {
       type: 'text',
-      text: '体がかゆくなってきちゃった。フロスできれいにしてくれるかな？'
+      text: "体がかゆくなってきちゃった。\nフロスできれいにしてくれるかな？"
     }
 
     client.push_message(line_user_id, message)
