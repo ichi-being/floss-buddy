@@ -2,4 +2,4 @@
 #   :schedule:
 #     test_job:
 #       cron: "0 * * * * *"   # 秒、分、時、日、月、曜日
-#       class: TestJob
+#       class: "LineBotPushJob"
