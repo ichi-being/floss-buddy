@@ -38,13 +38,13 @@ class WebhookController < ApplicationController
     case event.type
     when Line::Bot::Event::MessageType::Text
       case event.message['text']
-      when 'フロス記録をつける'
+      when 'フロスしたよ！'
         message = {
           type: 'template',
-          altText: 'ナイスフロス！いつの記録をつけますか？',
+          altText: "ナイスフロス！いつの記録をつける？",
           template: {
             type: 'buttons',
-            text: 'ナイスフロス！いつの記録をつけますか？',
+            text: "ナイスフロス！\nいつの記録をつける？",
             actions: [
               {
                 type: 'postback',
@@ -76,8 +76,53 @@ class WebhookController < ApplicationController
     if record_date
       user = find_or_create_user(event['source']['userId'])
       result = create_floss_record(user, record_date) if user
-      response_message = { type: 'text', text: result[:message] }
-      client.reply_message(event['replyToken'], response_message)
+
+      # フロス記録の保存に成功した場合のみ特別メッセージを追加
+      if result[:success]
+        consecutive_days = user.floss_records.last.consecutive_count
+        special_message = select_response_message(consecutive_days)
+        response_message_text = "#{result[:message]}\n#{special_message}"
+      else
+        response_message_text = result[:message]
+      end
+
+      response_message = { type: 'text', text: response_message_text }
+
+      # 成功した場合のみ画像メッセージを送信
+      if result[:success]
+        image_url = select_image_url(consecutive_days)
+        image_message = { type: 'image', originalContentUrl: image_url, previewImageUrl: image_url }
+        client.reply_message(event['replyToken'], [response_message, image_message])
+      else
+        client.reply_message(event['replyToken'], response_message)
+      end
+    end
+  end
+
+  def select_response_message(consecutive_days)
+    case consecutive_days
+    when 7 then "ナイスフロス！\n1週間のフロス継続エライ！"
+    when 14 then "ナイスフロス！\n2週間続けれたね。習慣化の道も半分過ぎたよ。"
+    when 21 then "ナイスフロス！\n3週間の継続エクセレント！ほぼ習慣化されたも同然だね。"
+    when 28 then "ナイスフロス！\n4週間の継続達成おめでとう！定期的に歯科検診も受けて、お口の健康を保っていこう！"
+    else "ナイスフロス！\n毎日の習慣で素敵な笑顔を保とう！"
+    end
+  end
+
+  def select_image_url(consecutive_count)
+    case consecutive_count
+    when 1 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 2 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 3 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 4 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 5 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 6 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 7 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 14 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 21 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 28 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    else
+      "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
     end
   end
 
@@ -88,9 +133,9 @@ class WebhookController < ApplicationController
   def create_floss_record(user, record_date)
     floss_record = user.floss_records.new(record_date: record_date)
     if floss_record.save
-      { success: true, message: "#{record_date}のフロス記録を保存しました。" }
+      { success: true, message: "#{record_date}の記録を保存したよ。" }
     else
-      { success: false, message: floss_record.errors.full_messages.join(", ") }
+      { success: false, message: "#{record_date}の記録は前にしているよ。フロスが習慣になってきているね。" }
     end
   end
 end
