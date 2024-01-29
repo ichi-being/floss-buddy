@@ -111,18 +111,17 @@ class WebhookController < ApplicationController
 
   def select_image_url(consecutive_count)
     case consecutive_count
-    when 1 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 2 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 3 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 4 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 5 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 6 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 7 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 14 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 21 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
-    when 28 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+    when 1 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_1.png"
+    when 2 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_2.png"
+    when 3 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_3.png"
+    when 4 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_4.png"
+    when 5 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_5.png"
+    when 6 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_6.png"
+    when 7..13 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_7_13.png"
+    when 14..20 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_14_20.png"
+    when 21..27 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_21_27.png"
     else
-      "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png"
+      "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_28.png"
     end
   end
 
