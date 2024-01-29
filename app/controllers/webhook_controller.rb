@@ -76,8 +76,18 @@ class WebhookController < ApplicationController
     if record_date
       user = find_or_create_user(event['source']['userId'])
       result = create_floss_record(user, record_date) if user
+
+      # テキストメッセージ
       response_message = { type: 'text', text: result[:message] }
-      client.reply_message(event['replyToken'], response_message)
+      # 画像メッセージ
+      image_message = {
+        type: 'image',
+        originalContentUrl: 'https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png',
+        previewImageUrl: 'https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/LINE_icon.png'
+      }
+
+      # テキストと画像のメッセージを配列で送信
+      client.reply_message(event['replyToken'], [response_message, image_message])
     end
   end
 
@@ -88,7 +98,7 @@ class WebhookController < ApplicationController
   def create_floss_record(user, record_date)
     floss_record = user.floss_records.new(record_date: record_date)
     if floss_record.save
-      { success: true, message: "#{record_date}のフロス記録を保存しました。" }
+      { success: true, message: "#{record_date}のフロス記録を保存したよ。" }
     else
       { success: false, message: floss_record.errors.full_messages.join(", ") }
     end
