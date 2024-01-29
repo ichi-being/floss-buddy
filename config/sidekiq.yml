@@ -1,0 +1,8 @@
+:scheduler:
+  :schedule:
+    floss_reminder_job:
+      cron: "0 0 12 * * *"   # 日本時間の毎日21時（UTCの12時）
+      class: FlossReminderJob
+    weekly_floss_summary_job:
+      cron: "0 0 22 * * 6"    # 日本時間の毎週日曜日の7時（UTCの前日の22時）
+      class: WeeklyFlossSummaryJob

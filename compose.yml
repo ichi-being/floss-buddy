@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   db:
     image: postgres:latest
@@ -9,6 +11,29 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  redis:
+    image: redis:latest
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    environment:
+      TZ: Asia/Tokyo
+    env_file: ./.env
+    depends_on:
+      - db
+      - redis
+
   web:
     build:
       context: .
@@ -25,6 +50,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - redis
+
   ngrok:
     image: ngrok/ngrok:latest
     restart: unless-stopped
@@ -37,5 +64,7 @@ services:
       - ./ngrok.yml:/etc/ngrok.yml
     ports:
       - 4040:4040
+
 volumes:
   postgres_data:
+  redis_data:

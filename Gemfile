@@ -79,7 +79,7 @@ group :test do
 
 end
 
-# fly launchで作成されたgem
+# fly launchで自動作成されたgem
 gem "dockerfile-rails", ">= 1.6", :group => :development
 gem "redis", "~> 5.0"
 
@@ -91,3 +91,7 @@ gem "gon"
 
 # LINE Messaging APIを使うためのgem
 gem 'line-bot-api'
+
+# バックグラウンド処理を行うためのgem
+gem 'sidekiq'
+gem 'sidekiq-scheduler' # Sidekiqで定期実行するためのgem
