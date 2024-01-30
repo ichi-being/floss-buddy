@@ -16,11 +16,17 @@ class FlossReminderJob < ApplicationJob
   def send_reminder(line_user_id)
     client = LineBotClient.client
 
-    message = {
+    text_message = {
       type: 'text',
       text: "体がかゆくなってきちゃった。\nフロスできれいにしてくれるかな？"
     }
 
-    client.push_message(line_user_id, message)
+    image_message = {
+      type: 'image',
+      originalContentUrl: 'https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/quitter.png',
+      previewImageUrl: 'https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/quitter.png'
+    }
+
+    client.push_message(line_user_id, [text_message, image_message])
   end
 end
