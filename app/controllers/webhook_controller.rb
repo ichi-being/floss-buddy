@@ -59,8 +59,28 @@ class WebhookController < ApplicationController
             ]
           }
         }
-        client.reply_message(event['replyToken'], message)
+      when 'フロスの効果を教えて'
+        message = [
+          {
+            type: 'text',
+            text: "歯ブラシだけの歯みがきだと、歯垢（歯のよごれ）は全体の6割程度しかとれないんだ。\nフロスも使うと歯垢除去率が1.5倍になるよ。"
+          },
+          {
+            type: 'text',
+            text: "フロスで得られる3つの効果\n①虫歯や歯周病の予防\n②口臭の予防\n③虫歯や歯周病・詰めものの不具合の早期発見"
+          },
+          {
+            type: 'text',
+            text: "フロスは1日1回を目安に、寝る前の歯みがきに使うのが効果的だよ。\nフロスを習慣化してお口の健康を保とう！"
+          }
+        ]
+      when 'ログの確認', '歯科検診結果を見せて'
+        message = {
+          type: 'text',
+          text: "本リリースで実装予定だよ。\nお楽しみに。"
+        }
       end
+      client.reply_message(event['replyToken'], message)
     end
   end
 
