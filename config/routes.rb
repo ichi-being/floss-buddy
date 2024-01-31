@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/privacy_policy', to: 'static_pages#privacy_policy'
 
   get '/after_login', to: 'static_pages#after_login'
-  resource :user, only: %i[new create]
+  resource :user, only: %i[new create destroy]
   resource :profile, controller: 'users', only: [:show]
 
   # webhook
