@@ -7,7 +7,6 @@ Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     ActiveSupport::SecurityUtils.secure_compare(password, ENV["SIDEKIQ_PASSWORD"])
 end
 
-
 Rails.application.routes.draw do
   # topページ
   root "static_pages#top"
@@ -16,7 +15,6 @@ Rails.application.routes.draw do
   get '/terms_of_service', to: 'static_pages#terms_of_service'
   get '/privacy_policy', to: 'static_pages#privacy_policy'
 
-  get '/after_login', to: 'static_pages#after_login'
   resource :user, only: %i[new create destroy]
   resource :profile, controller: 'users', only: [:show]
 

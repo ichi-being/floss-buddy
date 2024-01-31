@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   require 'uri'
 
   def new
-    redirect_to after_login_path if current_user
+    redirect_to profile_path if logged_in?
   end
 
   def create
