@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_liff_id, only: [:new]
-  before_action :login_required, only: [:show]
+  before_action :login_required, only: %i[show destroy]
   require 'net/http'
   require 'uri'
 
@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     @user = current_user
     @floss_records = @user.floss_records.order(record_date: :desc)
     @latest_record = @floss_records.first
+  end
+
+  def destroy
+    @user = current_user
+    @user.destroy
+    reset_session
+    redirect_to root_path, status: :see_other, success: 'アカウントが削除されました。'
   end
 
   private
