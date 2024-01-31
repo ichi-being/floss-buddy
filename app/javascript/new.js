@@ -28,10 +28,10 @@ document.addEventListener('turbo:load', async () => {
       throw new Error('Network response was not ok');
     }
 
-    // jsonでレスポンスからデータを取得して/after_loginに遷移する
+    // jsonでレスポンスからデータを取得してLIFFブラウザを閉じる
     const data = await response.json();
     const data_id = data;
-    window.location = '/after_login';
+    liff.closeWindow();
   } catch (error) {
     console.error(error); // ログにエラーを記録する
     alert('エラーが発生しました。');

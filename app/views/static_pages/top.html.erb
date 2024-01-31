@@ -13,8 +13,11 @@
     <p class="text-gray-600 mt-4">
       今すぐフロスバディと友だちになって、毎日のオーラルケアを楽しく効果的に。
     </p>
-    <div class="text-center mt-8">
-      <%= link_to '友だちになる', '#', class: 'btn btn-primary' %>
-    </div>
+
+    <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+      <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "h-12 border-none") %>
+    <% end %>
+
+    <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "h-40") %>
   </div>
 </section>
