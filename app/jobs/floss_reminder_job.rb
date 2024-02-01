@@ -18,7 +18,7 @@ class FlossReminderJob < ApplicationJob
 
     text_message = {
       type: 'text',
-      text: "体がかゆくなってきちゃった。\nフロスできれいにしてくれるかな？"
+      text: "ひゃー！！！\n歯垢がたまってきちゃってる！\nフロスできれいにしてくれるかな？"
     }
 
     image_message = {
