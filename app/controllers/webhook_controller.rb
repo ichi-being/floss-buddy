@@ -131,7 +131,6 @@ class WebhookController < ApplicationController
 
   def select_image_url(consecutive_count)
     case consecutive_count
-    when 0 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/quitter.png"
     when 1 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_1.png"
     when 2 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_2.png"
     when 3 then "https://floss-buddy-message.s3.ap-northeast-1.amazonaws.com/achievement_images/Day_3.png"

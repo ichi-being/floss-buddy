@@ -22,7 +22,7 @@ class FlossRecord < ApplicationRecord
   belongs_to :user
 
   validates :record_date, uniqueness: { scope: :user_id }
-  validates :consecutive_count, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 7 }
+  validates :consecutive_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   before_save :update_consecutive_count
 
@@ -32,15 +32,12 @@ class FlossRecord < ApplicationRecord
   def update_consecutive_count
     last_record = user.floss_records.order(record_date: :desc).first
 
-    if last_record && (record_date - last_record.record_date).to_i <= 2
-      # 前回の記録から2日以内の場合、連続実施日数をインクリメント
+    if last_record && (record_date - last_record.record_date).to_i == 1
+      # 前回の記録から1日だけ空いた場合、連続実施日数をインクリメント
       self.consecutive_count = last_record.consecutive_count + 1
     else
-      # 3日以上空いた場合、連続実施日数を0にリセット
-      self.consecutive_count = 0
+      # 2日以上空いた場合、連続実施日数を1にリセット
+      self.consecutive_count = 1
     end
-
-    # 連続実施日数を7日で制限
-    self.consecutive_count = 7 if self.consecutive_count > 7
   end
 end
