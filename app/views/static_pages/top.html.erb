@@ -48,14 +48,33 @@
     </div>
   </div>
 </div>
-  <div class="md:hidden mt-4">
-    <p class="mb-2 text-md">友達になって今すぐ始める</p>
-    <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
-    <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "h-10 border-none") %>
-    <% end %>
+<div class="hero min-h-screen py-10">
+  <div class="hero-content text-center">
+    <div class="max-w-lg">
+      <h2 class="text-5xl font-bold mb-10">フロス習慣化の<br>お助け機能</h2>
+      <h3 class="text-3xl font-bold text-left py-6">３日坊主防止リマインドメッセージ</h3>
+      <p class="text-left">フロスを忘れてしまったら、Floss Buddyからリマインドメッセージが届きます。どんな内容かはお楽しみに。</p>
+      <h3 class="text-3xl font-bold text-left py-6">1週間の振り返りメッセージ</h3>
+      <p class="text-left">1週間のフロスを振り返るメッセージが届きます。前回の歯科検診結果の画像も届いて振り返りができるようになります（未実装）。</p>
+      <h4 class="text-xl font-bold text-left pt-8">今後追加予定の機能</h4>
+      <p class="text-left">カレンダービューでのフロス実施状況の振り返り。歯科検診結果のトーク画面での確認。次回の歯科検診日の予約取得のリマインドメッセージ。</p>
+    </div>
   </div>
-  <div class="hidden md:block pt-3">
-    <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
-    <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+</div>
+<div class="hero min-h-48 bg-cover" style="background-image: url(<%= image_url('AdobeStock_481994179.jpg') %>);">
+  <div class="hero-overlay bg-opacity-80"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <div class="md:hidden">
+        <p class="mb-2 text-md">友達になって今すぐ始める</p>
+        <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+        <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "mx-auto h-10 border-none") %>
+        <% end %>
+      </div>
+      <div class="hidden md:block pt-3">
+        <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
+        <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+      </div>
+    </div>
   </div>
 </div>
