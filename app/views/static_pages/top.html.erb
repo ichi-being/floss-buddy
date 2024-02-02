@@ -1,23 +1,44 @@
-<section class="container mx-auto px-4 sm:px-6">
-  <div class="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 mb-10">
-    <h1 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">フロスバディとは？</h1>
-    <p class="text-gray-600 mt-4">
-      フロスバディはあなたのオーラルケアの新しいパートナー。
-    </p>
-    <p class="text-gray-600 mt-4">
-      LINEを通じてデンタルフロスの習慣化をサポートし、健康な歯と輝く笑顔を目指します。
-    </p>
-    <p class="text-gray-600 mt-4">
-      歯科定期検診のリマインド機能付きで、忙しいあなたも安心。
-    </p>
-    <p class="text-gray-600 mt-4">
-      今すぐフロスバディと友だちになって、毎日のオーラルケアを楽しく効果的に。
-    </p>
-
-    <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
-      <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "h-12 border-none") %>
-    <% end %>
-
-    <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "h-40") %>
+<div class="hero min-h-screen bg-contain md:bg-cover" style="background-image: url(<%= image_url('AdobeStock_481994179.jpg') %>);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-6xl font-bold">Floss Buddy</h1>
+      <p class="mb-5 text-xl">LINEで手軽に。フロスを習慣化！</p>
+      <div class="md:hidden">
+        <p class="mb-2 text-md">友達になって今すぐ始める</p>
+        <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+        <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "mx-auto h-10 border-none") %>
+        <% end %>
+      </div>
+      <div class="hidden md:block pt-3">
+        <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
+        <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+      </div>
+    </div>
   </div>
-</section>
+</div>
+<div class="p-4 md:p-8 mb-10">
+  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Floss Buddyとは？</h2>
+  <p class="text-gray-600 mt-4">
+    Floss Buddyはあなたのオーラルケアの新しいパートナー。
+  </p>
+  <p class="text-gray-600 mt-4">
+    LINEトーク上でデンタルフロスの習慣化をサポートし、健康な歯と輝く笑顔を目指します。
+  </p>
+  <p class="text-gray-600 mt-4">
+    歯科検診結果の確認や歯科定期検診のリマインド機能付きで、忙しいあなたも安心。
+  </p>
+  <p class="text-gray-600 mt-4">
+    今すぐFloss Buddyと友だちになって、毎日のオーラルケアを楽しく効果的に。
+  </p>
+  <div class="md:hidden mt-4">
+    <p class="mb-2 text-md">友達になって今すぐ始める</p>
+    <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+    <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "h-10 border-none") %>
+    <% end %>
+  </div>
+  <div class="hidden md:block pt-3">
+    <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
+    <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+  </div>
+</div>
