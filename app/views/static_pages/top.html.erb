@@ -1,23 +1,80 @@
-<section class="container mx-auto px-4 sm:px-6">
-  <div class="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 mb-10">
-    <h1 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">フロスバディとは？</h1>
-    <p class="text-gray-600 mt-4">
-      フロスバディはあなたのオーラルケアの新しいパートナー。
-    </p>
-    <p class="text-gray-600 mt-4">
-      LINEを通じてデンタルフロスの習慣化をサポートし、健康な歯と輝く笑顔を目指します。
-    </p>
-    <p class="text-gray-600 mt-4">
-      歯科定期検診のリマインド機能付きで、忙しいあなたも安心。
-    </p>
-    <p class="text-gray-600 mt-4">
-      今すぐフロスバディと友だちになって、毎日のオーラルケアを楽しく効果的に。
-    </p>
-
-    <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
-      <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "h-12 border-none") %>
-    <% end %>
-
-    <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "h-40") %>
+<div class="hero min-h-screen bg-contain md:bg-cover" style="background-image: url(<%= image_url('AdobeStock_481994179.jpg') %>);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-6xl font-bold">Floss Buddy</h1>
+      <p class="mb-5 text-xl">LINEで手軽に。フロスの習慣化！</p>
+      <div class="md:hidden">
+        <p class="mb-2 text-md">友達になって今すぐ始める</p>
+        <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+        <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "mx-auto h-10 border-none") %>
+        <% end %>
+      </div>
+      <div class="hidden md:block pt-3">
+        <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
+        <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+      </div>
+    </div>
   </div>
-</section>
+</div>
+<div class="hero min-h-screen py-10 bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-xl">
+      <h2 class="my-12 text-5xl font-bold">Floss Buddyの始め方</h2>
+      <div class="hero-content flex-col lg:flex-row">
+        <%= image_tag("info1.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
+        <div>
+          <h3 class="text-3xl font-bold">お手軽アカウント登録</h3>
+          <p class="py-6 text-left">LINE友達になったら、リンクをタップ！<br>これだけでアカウント登録が完了します面倒なメールアドレスやパスワードの設定は不要です。</p>
+        </div>
+      </div>
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <%= image_tag("info2.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
+        <div>
+          <h3 class="text-3xl font-bold">フロスを知る</h3>
+          <h4 class="text-xl font-bold pt-6 text-left">フロスって何が良いんだっけ？</h4>
+          <p class="text-left">「フロスの効果」をタップ。Floss Buddyが教えてくれます。</p>
+          <h4 class="pt-3 text-xl font-bold text-left">フロスってどうやってやるの？</h4>
+          <p class="pb-6 text-left">「フロスのやり方」をタップ。Youtubeを見ながらやってみよう！</p>
+        </div>
+      </div>
+      <div class="hero-content flex-col lg:flex-row">
+        <%= image_tag("info3.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
+        <div>
+          <h3 class="text-3xl font-bold">フロス記録をつける</h3>
+          <p class="py-6 text-left">当日もしくは前日の日付をLINE上で簡単登録。記録をするとFloss Buddyから応援メッセージと習慣化の進捗が分かる画像が送られます。徐々に変化するイラストを楽しみながらフロスを続けましょう！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hero min-h-screen py-10">
+  <div class="hero-content text-center">
+    <div class="max-w-lg">
+      <h2 class="text-5xl font-bold mb-10">フロス習慣化の<br>お助け機能</h2>
+      <h3 class="text-3xl font-bold text-left py-6">３日坊主防止リマインドメッセージ</h3>
+      <p class="text-left">フロスを忘れてしまったら、Floss Buddyからリマインドメッセージが届きます。どんな内容かはお楽しみに。</p>
+      <h3 class="text-3xl font-bold text-left py-6">1週間の振り返りメッセージ</h3>
+      <p class="text-left">1週間のフロスを振り返るメッセージが届きます。前回の歯科検診結果の画像も届いて振り返りができるようになります（未実装）。</p>
+      <h4 class="text-xl font-bold text-left pt-8">今後追加予定の機能</h4>
+      <p class="text-left">カレンダービューでのフロス実施状況の振り返り。歯科検診結果のトーク画面での確認。次回の歯科検診日の予約取得のリマインドメッセージ。</p>
+    </div>
+  </div>
+</div>
+<div class="hero min-h-48 bg-cover" style="background-image: url(<%= image_url('AdobeStock_481994179.jpg') %>);">
+  <div class="hero-overlay bg-opacity-80"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <div class="md:hidden">
+        <p class="mb-2 text-md">友達になって今すぐ始める</p>
+        <%= link_to "https://lin.ee/utJYG6V", target: "_blank", rel: "noopener noreferrer" do %>
+        <%= image_tag("https://scdn.line-apps.com/n/line_add_friends/btn/ja.png", alt: "友だち追加", class: "mx-auto h-10 border-none") %>
+        <% end %>
+      </div>
+      <div class="hidden md:block pt-3">
+        <p class="mb-2 text-md">スマホでQRコードを読み取って今すぐ始める</p>
+        <%= image_tag("https://qr-official.line.me/gs/M_250efiuz_BW.png?oat_content=qr", alt: "QRコード", class: "hidden md:block mx-auto h-24") %>
+      </div>
+    </div>
+  </div>
+</div>
