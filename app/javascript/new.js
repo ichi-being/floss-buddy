@@ -1,4 +1,4 @@
-// DOMが読み込まれたら処理が走る
+// このファイルは、新規登録画面で読み込まれる
 document.addEventListener('turbo:load', async () => {
   try {
     // csrf-tokenを取得
@@ -12,7 +12,7 @@ document.addEventListener('turbo:load', async () => {
     // bodyにパラメーターの設定
     const body = new URLSearchParams({ idToken }).toString();
     // リクエスト内容の定義
-    const request = new Request('/user', {
+    const request = new Request('/users', {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'X-CSRF-Token': token
@@ -23,14 +23,24 @@ document.addEventListener('turbo:load', async () => {
 
     // リクエストを送る
     const response = await fetch(request);
+    const responseBody = await response.json();
 
+    // レスポンスのステータスコードがOKではない場合の処理
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      // IdTokenの有効期限が切れていることを示すエラーを検出する
+      if (responseBody.error === 'IdToken expired.') {
+        // LIFFのログインプロセスをトリガーして新たなIdTokenを取得する
+        liff.login();
+        return;
+      }
+      // その他のエラーの場合は、エラーメッセージを表示する
+      console.error('Network response was not ok:', responseBody.error);
+      alert('エラーが発生しました。');
+      return;
     }
 
-    // jsonでレスポンスからデータを取得してLIFFブラウザを閉じる
-    const data = await response.json();
-    const data_id = data;
+    // レスポンスが正常の場合、LIFFブラウザを閉じるなどの後続処理を行う
+    const data_id = responseBody;
     liff.closeWindow();
   } catch (error) {
     console.error(error); // ログにエラーを記録する

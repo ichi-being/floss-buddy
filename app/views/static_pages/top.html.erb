@@ -21,14 +21,14 @@
   <div class="hero-content text-center">
     <div class="max-w-xl">
       <h2 class="my-12 text-5xl font-bold">Floss Buddyの始め方</h2>
-      <div class="hero-content flex-col lg:flex-row">
+      <div class="hero-content flex-col md:flex-row">
         <%= image_tag("info1.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
         <div>
           <h3 class="text-3xl font-bold">お手軽アカウント登録</h3>
-          <p class="py-6 text-left">LINE友達になったら、リンクをタップ！<br>これだけでアカウント登録が完了します面倒なメールアドレスやパスワードの設定は不要です。</p>
+          <p class="py-6 text-left">LINE友達になったら、リンクをタップ！<br>これだけでアカウント登録が完了します。面倒なメールアドレスやパスワードの設定は不要です。</p>
         </div>
       </div>
-      <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="hero-content flex-col md:flex-row-reverse">
         <%= image_tag("info2.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
         <div>
           <h3 class="text-3xl font-bold">フロスを知る</h3>
@@ -38,11 +38,11 @@
           <p class="pb-6 text-left">「フロスのやり方」をタップ。Youtubeを見ながらやってみよう！</p>
         </div>
       </div>
-      <div class="hero-content flex-col lg:flex-row">
+      <div class="hero-content flex-col md:flex-row">
         <%= image_tag("info3.jpg", class: "max-w-56 rounded-lg shadow-2xl") %>
         <div>
           <h3 class="text-3xl font-bold">フロス記録をつける</h3>
-          <p class="py-6 text-left">当日もしくは前日の日付をLINE上で簡単登録。記録をするとFloss Buddyから応援メッセージと習慣化の進捗が分かる画像が送られます。徐々に変化するイラストを楽しみながらフロスを続けましょう！</p>
+          <p class="py-6 text-left">当日もしくは前日の日付をトーク画面で簡単登録。記録をするとFloss Buddyから応援メッセージと習慣化の進捗が分かるイラストが届きます。徐々に変化するイラストを楽しみながらフロスを続けましょう！</p>
         </div>
       </div>
     </div>
@@ -53,11 +53,15 @@
     <div class="max-w-lg">
       <h2 class="text-5xl font-bold mb-10">フロス習慣化の<br>お助け機能</h2>
       <h3 class="text-3xl font-bold text-left py-6">３日坊主防止リマインドメッセージ</h3>
-      <p class="text-left">フロスを忘れてしまったら、Floss Buddyからリマインドメッセージが届きます。どんな内容かはお楽しみに。</p>
+      <p class="text-left">フロス間隔が空くとFloss Buddyからリマインドメッセージが届きます。どんな内容かはお楽しみに。</p>
       <h3 class="text-3xl font-bold text-left py-6">1週間の振り返りメッセージ</h3>
-      <p class="text-left">1週間のフロスを振り返るメッセージが届きます。前回の歯科検診結果の画像も届いて振り返りができるようになります（未実装）。</p>
+      <p class="text-left">1週間を振り返るメッセージが届きます。がんばった自分をほめてあげましょう。</p>
       <h4 class="text-xl font-bold text-left pt-8">今後追加予定の機能</h4>
-      <p class="text-left">カレンダービューでのフロス実施状況の振り返り。歯科検診結果のトーク画面での確認。次回の歯科検診日の予約取得のリマインドメッセージ。</p>
+      <ul class="text-left">
+        <li>カレンダービューで1ヶ月のフロス実施状況の振り返り。</li>
+        <li>歯科検診結果のプロフィールページからの登録、表示。トーク上で最新の結果を返信。1週間の振り返りのメッセージと一緒に送信。</li>
+        <li>次回の歯科検診日の確認・予約取得のリマインドメッセージ。</li>
+      </ul>
     </div>
   </div>
 </div>

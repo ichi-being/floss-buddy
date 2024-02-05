@@ -32,8 +32,8 @@ class FlossRecord < ApplicationRecord
   def update_consecutive_count
     last_record = user.floss_records.order(record_date: :desc).first
 
-    if last_record && (record_date - last_record.record_date).to_i == 1
-      # 前回の記録から1日だけ空いた場合、連続実施日数をインクリメント
+    if last_record && (record_date - last_record.record_date).abs == 1
+      # 前回の記録から前後1日だけ空いた場合、連続実施日数を1増やす
       self.consecutive_count = last_record.consecutive_count + 1
     else
       # 2日以上空いた場合、連続実施日数を1にリセット
