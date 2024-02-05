@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get '/terms_of_service', to: 'static_pages#terms_of_service'
   get '/privacy_policy', to: 'static_pages#privacy_policy'
 
-  resources :users, only: %i[new create destroy]
-  resource :profile, controller: 'users', only: [:show]
+  resources :users, only: %i[new create]
+  resource :profile, controller: 'users', only: %i[show destroy]
 
   # webhook
   post '/callback', to: 'webhook#callback'

@@ -7,8 +7,22 @@
     </div>
 
     <div class="text-gray-600 mb-10">
-      <p class="mb-4">フロス実施日数: <%= @user.floss_records.count %>日</p>
-      <p>連続フロス日数: <%= @latest_record ? @latest_record.consecutive_count : 0 %>日</p>
+      <p class="mb-4">これまでのトータルフロス実施日数: <%= @user.floss_records.count %>日</p>
+      <p>連続フロス日数の最高記録: <%= @latest_record ? @latest_record.consecutive_count : 0 %>日</p>
+    </div>
+    <div class="text-right">
+    <%= link_to 'アカウント削除', profile_path, data: { turbo_method: :delete, turbo_confirm: '本当に削除してもいいですか？' }, class: 'btn btn-accent btn-sm text-white' %>
+    </div>
+  </div>
+
+  <div class="card md:card-side bg-base-100 shadow-xl">
+    <figure><img src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album"/></figure>
+    <div class="card-body">
+      <h2 class="card-title">最新の歯科検診結果</h2>
+      <p>画像登録ができるようになる予定です。（準備中）</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">submit</button>
+      </div>
     </div>
   </div>
 </section>
