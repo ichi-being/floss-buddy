@@ -1,15 +1,14 @@
 <% content_for(:title, t('.title')) %>
-<section class="container mx-auto px-4 sm:px-6">
-  <div class="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 mb-10">
+<section class=" bg-neutral-100 container mx-auto px-4 sm:px-6 py-10">
+  <div class="bg-white max-w-sm mx-auto shadow-lg rounded-lg p-4 sm:p-6 md:p-8 mb-6">
     <div class="flex items-center mb-6">
-      <%= image_tag @user.image, alt: @user.display_name, class: "rounded-full h-20 w-20 mr-4" %>
+      <%= image_tag @user.image, alt: @user.display_name, class: "rounded-full h-20 w-20 border-2 border-blue-300 mr-4" %>
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-800"><%= @user.display_name %></h2>
     </div>
 
-    <div class="text-gray-600">
+    <div class="text-gray-600 mb-10">
       <p class="mb-4">フロス実施日数: <%= @user.floss_records.count %>日</p>
       <p>連続フロス日数: <%= @latest_record ? @latest_record.consecutive_count : 0 %>日</p>
     </div>
-    <%= link_to 'アカウントを削除する', user_path, data: { turbo_method: :delete, turbo_confirm: '本当に削除してもいいですか？' }, class: 'btn btn-accent btn-sm' %>
   </div>
 </section>

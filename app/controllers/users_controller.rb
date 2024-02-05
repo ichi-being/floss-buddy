@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   require 'net/http'
   require 'uri'
 
-  def new
-    redirect_to profile_path if logged_in?
-  end
+  def new; end
 
   def create
     user = authenticate_line_user(params[:idToken])
@@ -34,7 +32,7 @@ class UsersController < ApplicationController
   def authenticate_line_user(id_token)
     channel_id = ENV['LINE_LOGIN_CHANNEL_ID']
     res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'), { 'id_token' => id_token, 'client_id' => channel_id })
-    raise "LINE API error: #{res.code}" unless res.is_a?(Net::HTTPSuccess)
+    raise "LINE API error: #{res.body}" unless res.is_a?(Net::HTTPSuccess)
 
     line_data = JSON.parse(res.body)
     line_user_id = line_data['sub']
