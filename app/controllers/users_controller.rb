@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def create
     user = authenticate_line_user(params[:idToken])
     session[:user_id] = user.id
+    # リッチメニューを紐づける
+    link_rich_menu_to_user(user.line_user_id)
     render json: user
   rescue StandardError => e
     render json: { error: e.message }, status: :unprocessable_entity
@@ -48,5 +50,18 @@ class UsersController < ApplicationController
     user.save!
 
     user
+  end
+
+  def link_rich_menu_to_user(line_user_id)
+    client = Line::Bot::Client.new { |config|
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
+
+    rich_menu_id = ENV['richMenuId_resistered']
+    response = client.link_user_rich_menu(line_user_id, rich_menu_id)
+
+    # エラーチェック
+    raise "Failed to link rich menu: #{response.body}" unless response.code == '200'
   end
 end
