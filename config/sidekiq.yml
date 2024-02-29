@@ -6,3 +6,9 @@
     weekly_floss_summary_job:
       cron: "0 0 7 * * 0"
       class: WeeklyFlossSummaryJob
+
+:concurrency: 3
+:queues:
+	- default
+:retry: 5
+:poll_interval_average: 60
